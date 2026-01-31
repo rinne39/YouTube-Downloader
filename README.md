@@ -1,27 +1,42 @@
-# YouTube-Downloader
+# YouTube Downloader
 
-A high-performance, multi-threaded YouTube downloader with a modern CustomTkinter GUI. Features 4K support, categorized scanning, and system-sync theme.
-Supports preset categorization before scanning (standard videos, short videos, live stream replays), significantly boosting parsing efficiency.
-Built-in 5-thread concurrent downloads.
-Default support for capturing and automatically merging video streams up to 2160p (4K).
-Dedicated download management page for real-time monitoring of download speed, progress, and remaining time.
-Theme Sync: UI seamlessly adapts to Windows color schemes, supporting light, dark, and system-following modes.
-Automatically detects membership-restricted videos and displays clear “Membership Restriction” alerts to prevent wasted idle time.
-If you need to package it yourself, please import ffmpeg.exe (https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-full.7z) ，Extract ffmpeg.exe after downloading and put the exe file into the same directory as main.py.
-Disclaimer：This tool is intended solely for personal study, research, and video archiving purposes. Please use it in compliance with YouTube's official Terms of Service and applicable local copyright laws.
+YouTube Downloader是一款高性能、多线程的视频归档工具。它专为需要极速解析与批量下载的用户设计，采用 CustomTkinter 框架构建。
 
-一款高性能、多线程的YouTube下载器，配备现代化的CustomTkinter图形界面。支持4K视频下载、分类扫描功能及系统同步主题。
-支持在扫描前预设分类（普通视频、短视频、直播回放），大幅提升解析效率。
-内置 5 线程并发下载。
-默认支持最高 2160p (4K) 视频流抓取与自动合并。
-独立的下载管理页面，实时监控下载速度、进度及剩余时间。
-UI 完美适配 Windows 系统颜色模式，支持浅色、深色及系统跟随。
-自动检测会员限定视频并弹出明确的“会员限制”提醒，避免无效挂机。
-如需自行打包，请在（https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-full.7z）下载后解压提取ffmpeg.exe，放置在main.py同目录下
-免责声明：本工具仅供个人学习研究及视频归档使用，请在遵守 YouTube 官方服务条款及当地版权法律的前提下使用。
+## 核心功能
 
-Technology Stack
-Core Engine: yt-dlp
-GUI Framework: CustomTkinter
-Binary Tools: FFmpeg (for muxing)
-Language: Python 3.10+
+* **精准分流扫描**：支持在开始扫描前预选分类（普通视频、短视频、直播回放），大幅减少解析冗余数据的时间。
+* **多线程并行下载**：内置 5 线程并发下载引擎，充分利用高带宽网络环境进行任务狂飙。
+* **超高清画质支持**：默认支持最高 2160p (4K) 视频流抓取，并自动调用二进制工具进行无损封装。
+* **实时下载管理**：提供独立的任务监控页面，显示当前下载速度、进度百分比及预估剩余时间 (ETA)。
+* **系统主题同步**：界面自动适配 Windows 系统颜色模式（深色/浅色），并支持手动自由切换。
+* **会员状态识别**：智能检测会员限定视频，并在任务状态栏明确提示“会员限制”，避免因权限不足导致的无效挂机。
+* **一键目录直达**：集成全局“打开目录”功能，下载完成后可快速定位本地物理路径。
+
+## 技术栈
+
+* **核心引擎**: yt-dlp
+* **图形界面**: CustomTkinter
+* **二进制组件**: FFmpeg
+* **开发语言**: Python 3.10+
+
+## 安装与运行
+
+1. **配置环境**
+   安装必要的 Python 依赖包：
+   `pip install yt-dlp customtkinter`
+
+2. **部署二进制文件**
+   从官方源下载 [FFmpeg](https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-full.7z)，解压并将 `ffmpeg.exe` 放置在 `main.py` 的同级目录下。
+
+3. **启动程序**
+   执行 `python main.py` 启动软件。
+
+## 封装发布
+
+如需将项目打包为独立的 .exe 文件，请使用以下 PyInstaller 指令：
+
+`pyinstaller --noconsole --onefile --add-binary "ffmpeg.exe;." --collect-all customtkinter --name "YouTube_Downloader_Rinne" main.py`
+
+## 免责声明
+
+本工具仅供个人学习、研究及视频归档使用。用户在使用过程中应严格遵守 YouTube 官方服务条款及所在地法律法规。作者不对任何违规使用行为承担法律责任。
